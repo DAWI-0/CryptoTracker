@@ -1,0 +1,120 @@
+{
+    "nav": {
+        "home": "الرئيسية",
+        "transactions": "المعاملات",
+        "trade": "تداول",
+        "dashboard": "لوحة القيادة",
+        "login": "تسجيل الدخول",
+        "register": "تسجيل",
+        "profile": "ملفي الشخصي",
+        "logout": "تسجيل الخروج"
+    },
+    "home": {
+        "title_suffix": "متتبع",
+        "subtitle": "تتبع الأسعار في الوقت الفعلي وقم بإدارة محفظتك بنقرة واحدة."
+    },
+    "dashboard": {
+        "loading_error": "❌ خطأ في تحميل لوحة القيادة",
+        "stats": {
+            "users": "إجمالي المستخدمين",
+            "transactions": "المعاملات",
+            "offers": "العروض النشطة"
+        },
+        "trend": {
+            "month": "مقارنة بالشهر الماضي"
+        },
+        "chart": {
+            "title": "نشاط المعاملات (7 أيام)"
+        },
+        "recent_tx": {
+            "title": "أحدث المعاملات",
+            "coin": "العملة",
+            "amount": "المبلغ",
+            "date": "التاريخ"
+        },
+        "recent_offers": {
+            "title": "أحدث العروض",
+            "amount_label": "المبلغ:"
+        }
+    },
+    "login": {
+        "title": "تسجيل الدخول",
+        "error": "بيانات الاعتماد غير صالحة",
+        "email_placeholder": "البريد الإلكتروني",
+        "password_placeholder": "كلمة المرور",
+        "button": "تسجيل الدخول"
+    },
+    "register": {
+        "title": "تسجيل",
+        "error": "فشل التسجيل",
+        "username_placeholder": "اسم المستخدم",
+        "email_placeholder": "البريد الإلكتروني",
+        "password_placeholder": "كلمة المرور",
+        "button": "تسجيل"
+    },
+    "profile": {
+        "loading": "جار التحميل...",
+        "update_success": "✅ تم تحديث الملف الشخصي",
+        "update_error": "❌ فشل التحديث",
+        "avatar_success": "✅ تم تحديث الصورة الرمزية",
+        "avatar_error": "❌ فشل تحميل الصورة الرمزية",
+        "title": "ملفي الشخصي",
+        "edit_photo": "تعديل",
+        "created_at": "تم إنشاء الحساب في",
+        "edit_button": "تعديل",
+        "cancel_button": "إلغاء",
+        "info_title": "معلومات",
+        "email_label": "البريد الإلكتروني:",
+        "favorite_coin_label": "العملة المفضلة:",
+        "social_title": "شبكات التواصل الاجتماعي",
+        "edit_title": "تعديل معلوماتي",
+        "username_label": "اسم المستخدم",
+        "save_button": "حفظ",
+        "visit_button": "زيارة"
+    },
+    "trade": {
+        "title": "معاملة جديدة",
+        "buy_tab": "شراء",
+        "sell_tab": "بيع",
+        "crypto_label": "عملة مشفرة",
+        "amount_label": "المبلغ",
+        "buy_button": "شراء",
+        "sell_amount_label": "المبلغ للبيع",
+        "price_label": "سعر الوحدة (USD)",
+        "publish_offer": "نشر العرض",
+        "cancel": "إلغاء",
+        "switch_to_buy": "التبديل إلى الشراء",
+        "switch_to_sell": "التبديل إلى البيع",
+        "toast": {
+            "loading_error": "❌ خطأ في تحميل العملات",
+            "invalid_amount": "مبلغ غير صالح",
+            "buy_success": "تم الشراء بنجاح!",
+            "buy_error": "فشل الشراء",
+            "fill_all": "يرجى ملء جميع الحقول",
+            "sell_success": "✅ تم إنشاء عرض البيع!",
+            "sell_error": "فشل البيع"
+        }
+    },
+    "transactions": {
+        "title": "معاملاتي",
+        "empty": "لا توجد معاملات بعد.",
+        "error": "❌ خطأ في تحميل السجل",
+        "table": {
+            "date": "التاريخ",
+            "coin": "العملة",
+            "type": "النوع",
+            "amount": "المبلغ",
+            "price_usd": "السعر USD",
+            "total": "الإجمالي"
+        },
+        "type": {
+            "buy": "شراء",
+            "sell": "بيع"
+        }
+    },
+    "toast": {
+        "success": "نجاح",
+        "error": "خطأ",
+        "warning": "تحذير"
+    }
+}

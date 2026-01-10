@@ -1,0 +1,120 @@
+{
+    "nav": {
+        "home": "Home",
+        "transactions": "Transactions",
+        "trade": "Trade",
+        "dashboard": "Dashboard",
+        "login": "Login",
+        "register": "Register",
+        "profile": "My Profile",
+        "logout": "Logout"
+    },
+    "home": {
+        "title_suffix": "Tracker",
+        "subtitle": "Track real-time prices and manage your portfolio in one click."
+    },
+    "dashboard": {
+        "loading_error": "❌ Error loading dashboard",
+        "stats": {
+            "users": "Total Users",
+            "transactions": "Transactions",
+            "offers": "Active Offers"
+        },
+        "trend": {
+            "month": "vs last month"
+        },
+        "chart": {
+            "title": "Transaction Activity (7 Days)"
+        },
+        "recent_tx": {
+            "title": "Recent Transactions",
+            "coin": "Coin",
+            "amount": "Amount",
+            "date": "Date"
+        },
+        "recent_offers": {
+            "title": "Latest Offers",
+            "amount_label": "Amount:"
+        }
+    },
+    "login": {
+        "title": "Login",
+        "error": "Invalid credentials",
+        "email_placeholder": "Email",
+        "password_placeholder": "Password",
+        "button": "Login"
+    },
+    "register": {
+        "title": "Register",
+        "error": "Registration failed",
+        "username_placeholder": "Username",
+        "email_placeholder": "Email",
+        "password_placeholder": "Password",
+        "button": "Register"
+    },
+    "profile": {
+        "loading": "Loading...",
+        "update_success": "✅ Profile updated",
+        "update_error": "❌ Update failed",
+        "avatar_success": "✅ Avatar updated",
+        "avatar_error": "❌ Avatar upload failed",
+        "title": "My Profile",
+        "edit_photo": "Edit",
+        "created_at": "Account created on",
+        "edit_button": "Edit",
+        "cancel_button": "Cancel",
+        "info_title": "Information",
+        "email_label": "Email:",
+        "favorite_coin_label": "Favorite Coin:",
+        "social_title": "Social Networks",
+        "edit_title": "Edit my information",
+        "username_label": "Username",
+        "save_button": "Save",
+        "visit_button": "Visit"
+    },
+    "trade": {
+        "title": "New Transaction",
+        "buy_tab": "Buy",
+        "sell_tab": "Sell",
+        "crypto_label": "Crypto",
+        "amount_label": "Amount",
+        "buy_button": "Buy",
+        "sell_amount_label": "Amount to sell",
+        "price_label": "Unit Price (USD)",
+        "publish_offer": "Publish Offer",
+        "cancel": "Cancel",
+        "switch_to_buy": "Switch to Buy",
+        "switch_to_sell": "Switch to Sell",
+        "toast": {
+            "loading_error": "❌ Error loading cryptos",
+            "invalid_amount": "Invalid amount",
+            "buy_success": "Purchase successful!",
+            "buy_error": "Purchase failed",
+            "fill_all": "Please fill all fields",
+            "sell_success": "✅ Sell offer created!",
+            "sell_error": "Sell failed"
+        }
+    },
+    "transactions": {
+        "title": "My Transactions",
+        "empty": "No transactions yet.",
+        "error": "❌ Error loading history",
+        "table": {
+            "date": "Date",
+            "coin": "Coin",
+            "type": "Type",
+            "amount": "Amount",
+            "price_usd": "Price USD",
+            "total": "Total"
+        },
+        "type": {
+            "buy": "Buy",
+            "sell": "Sell"
+        }
+    },
+    "toast": {
+        "success": "Success",
+        "error": "Error",
+        "warning": "Warning"
+    }
+}

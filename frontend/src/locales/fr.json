@@ -1,0 +1,120 @@
+{
+    "nav": {
+        "home": "Accueil",
+        "transactions": "Transactions",
+        "trade": "Trade",
+        "dashboard": "Tableau de bord",
+        "login": "Connexion",
+        "register": "Inscription",
+        "profile": "Mon Profil",
+        "logout": "Déconnexion"
+    },
+    "home": {
+        "title_suffix": "Tracker",
+        "subtitle": "Suivez les prix en temps réel et gérez votre portefeuille en un clic."
+    },
+    "dashboard": {
+        "loading_error": "❌ Erreur chargement tableau de bord",
+        "stats": {
+            "users": "Utilisateurs Totaux",
+            "transactions": "Transactions",
+            "offers": "Offres Actives"
+        },
+        "trend": {
+            "month": "vs dernier mois"
+        },
+        "chart": {
+            "title": "Activité des Transactions (7 Jours)"
+        },
+        "recent_tx": {
+            "title": "Transactions Récentes",
+            "coin": "Coin",
+            "amount": "Montant",
+            "date": "Date"
+        },
+        "recent_offers": {
+            "title": "Dernières Offres",
+            "amount_label": "Montant :"
+        }
+    },
+    "login": {
+        "title": "Connexion",
+        "error": "Identifiants invalides",
+        "email_placeholder": "Email",
+        "password_placeholder": "Mot de passe",
+        "button": "Se connecter"
+    },
+    "register": {
+        "title": "Inscription",
+        "error": "Erreur lors de l'inscription",
+        "username_placeholder": "Nom d'utilisateur",
+        "email_placeholder": "Email",
+        "password_placeholder": "Mot de passe",
+        "button": "S'inscrire"
+    },
+    "profile": {
+        "loading": "Chargement...",
+        "update_success": "✅ Profil mis à jour",
+        "update_error": "❌ Erreur lors de la mise à jour",
+        "avatar_success": "✅ Avatar mis à jour",
+        "avatar_error": "❌ Erreur upload avatar",
+        "title": "Mon Profil",
+        "edit_photo": "Modifier",
+        "created_at": "Compte créé le",
+        "edit_button": "Modifier",
+        "cancel_button": "Annuler",
+        "info_title": "Informations",
+        "email_label": "Email :",
+        "favorite_coin_label": "Coin favori :",
+        "social_title": "Réseaux sociaux",
+        "edit_title": "Modifier mes informations",
+        "username_label": "Nom d'utilisateur",
+        "save_button": "Sauvegarder",
+        "visit_button": "Aller"
+    },
+    "trade": {
+        "title": "Nouvelle transaction",
+        "buy_tab": "Achat",
+        "sell_tab": "Vendre",
+        "crypto_label": "Crypto",
+        "amount_label": "Montant",
+        "buy_button": "Acheter",
+        "sell_amount_label": "Montant à vendre",
+        "price_label": "Prix unitaire (USD)",
+        "publish_offer": "Publier l’offre",
+        "cancel": "Annuler",
+        "switch_to_buy": "Passer à l’achat",
+        "switch_to_sell": "Passer à la vente",
+        "toast": {
+            "loading_error": "❌ Erreur chargement cryptos",
+            "invalid_amount": "Montant invalide",
+            "buy_success": "Achat effectué avec succès !",
+            "buy_error": "Erreur lors de l'achat",
+            "fill_all": "Veuillez remplir tous les champs",
+            "sell_success": "✅ Offre de vente créée !",
+            "sell_error": "Erreur lors de la vente"
+        }
+    },
+    "transactions": {
+        "title": "Mes Transactions",
+        "empty": "Aucune transaction pour le moment.",
+        "error": "❌ Erreur lors du chargement de l’historique",
+        "table": {
+            "date": "Date",
+            "coin": "Coin",
+            "type": "Type",
+            "amount": "Montant",
+            "price_usd": "Prix USD",
+            "total": "Total"
+        },
+        "type": {
+            "buy": "Achat",
+            "sell": "Vente"
+        }
+    },
+    "toast": {
+        "success": "Succès",
+        "error": "Erreur",
+        "warning": "Attention"
+    }
+}
