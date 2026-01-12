@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../api/axios";
-import Toast from "../components/Toast"; // 1. On importe le composant
+import Toast from "../components/Toast";
 import { useTranslation } from "react-i18next";
 
 export default function Trade() {
@@ -10,10 +10,8 @@ export default function Trade() {
   const [sellForm, setSellForm] = useState({ coin: "BTC", amount: "", price: "" });
   const [showSell, setShowSell] = useState(false);
 
-  // 2. État pour gérer le Toast
   const [toast, setToast] = useState({ show: false, message: "", type: "success" });
 
-  // Helper pour afficher le toast facilement
   const triggerToast = (message, type = "success") => {
     setToast({ show: true, message, type });
   };
@@ -24,11 +22,9 @@ export default function Trade() {
       .catch(() => triggerToast(t('trade.toast.loading_error'), "error"));
   }, []);
 
-  /* ----------  ACHAT  ---------- */
   const handleBuy = async e => {
     e.preventDefault();
 
-    // Validation
     if (!buyForm.amount || isNaN(buyForm.amount) || Number(buyForm.amount) <= 0) {
       triggerToast(t('trade.toast.invalid_amount'), "warning");
       return;
@@ -50,11 +46,9 @@ export default function Trade() {
     }
   };
 
-  /* ----------  VENTE (offre)  ---------- */
   const handleSell = async e => {
     e.preventDefault();
 
-    // Validation
     if (!sellForm.amount || !sellForm.price) {
       triggerToast(t('trade.toast.fill_all'), "warning");
       return;
@@ -81,9 +75,7 @@ export default function Trade() {
 
         <h1 className="text-3xl font-extrabold text-center text-[#E6D8B5]">{t('trade.title')}</h1>
 
-        {/* AFFICHAGE : un SEUL formulaire à la fois */}
         {showSell ? (
-          /* -------- FORM VENTE -------- */
           <div className="bg-[#1E293B] rounded-2xl p-6 border border-[#E6D8B5]/30">
             <h2 className="text-xl font-semibold mb-4 text-[#E6D8B5]">{t('trade.sell_tab')}</h2>
             <form onSubmit={handleSell} className="space-y-4">
@@ -141,7 +133,6 @@ export default function Trade() {
             </form>
           </div>
         ) : (
-          /* -------- FORM ACHAT -------- */
           <div className="bg-[#1E293B] rounded-2xl p-6 border border-[#E6D8B5]/30">
             <h2 className="text-xl font-semibold mb-4 text-[#E6D8B5]">{t('trade.buy_tab')}</h2>
             <form onSubmit={handleBuy} className="space-y-4">
@@ -182,7 +173,6 @@ export default function Trade() {
           </div>
         )}
 
-        {/* Bouton unique : bascule Achat ↔ Vente */}
         <div className="text-center">
           <button
             onClick={() => setShowSell(prev => !prev)}
@@ -193,7 +183,6 @@ export default function Trade() {
         </div>
       </div>
 
-      {/* 3. Affichage conditionnel du Toast */}
       {toast.show && (
         <Toast
           message={toast.message}

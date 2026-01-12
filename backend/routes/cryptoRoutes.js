@@ -2,12 +2,10 @@ const express = require('express');
 const axios = require('axios');
 const router = express.Router();
 
-// Cache pour éviter trop de requêtes à CoinGecko
 let cachedData = null;
 let lastFetch = 0;
-const CACHE_DURATION = 60000; // 1 minute
+const CACHE_DURATION = 60000;
 
-// Données de fallback en cas d'erreur
 const FALLBACK_CRYPTOS = [
   { name: "Bitcoin", symbol: "BTC", price_usd: 42000 },
   { name: "Ethereum", symbol: "ETH", price_usd: 2200 },
@@ -23,14 +21,12 @@ const FALLBACK_CRYPTOS = [
 
 router.get('/', async (req, res) => {
   try {
-    // Si on a des données en cache et qu'elles sont récentes
     const now = Date.now();
     if (cachedData && (now - lastFetch) < CACHE_DURATION) {
       console.log("✅ Utilisation du cache");
       return res.json(cachedData);
     }
 
-    // Sinon, on essaie de récupérer depuis CoinGecko
     console.log("🔄 Récupération depuis CoinGecko...");
     const { data } = await axios.get(
       "https://api.coingecko.com/api/v3/coins/markets",
@@ -52,7 +48,6 @@ router.get('/', async (req, res) => {
       price_usd: c.current_price
     }));
 
-    // Mise en cache
     cachedData = formatted;
     lastFetch = now;
 
@@ -62,13 +57,10 @@ router.get('/', async (req, res) => {
   } catch (err) {
     console.error("❌ Erreur CoinGecko :", err.response?.status || err.message);
 
-    // Si on a des données en cache (même anciennes), on les retourne
     if (cachedData) {
       console.log("⚠️ Utilisation du cache (ancien)");
       return res.json(cachedData);
     }
-
-    // Sinon, on retourne les données de fallback
     console.log("⚠️ Utilisation des données de fallback");
     res.json(FALLBACK_CRYPTOS);
   }

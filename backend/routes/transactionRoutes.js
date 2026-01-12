@@ -1,9 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const { Transaction } = require("../models/index"); // ← CHANGEMENT ICI
+const { Transaction } = require("../models/index");
 const { verifyToken } = require("../middleware/auth");
 
-// GET /api/transactions
 router.get("/", verifyToken, async (req, res) => {
   console.log("🎯 Route /api/transactions atteinte");
   console.log("🔍 req.user :", req.user);
@@ -21,7 +20,6 @@ router.get("/", verifyToken, async (req, res) => {
   }
 });
 
-// POST /api/transactions
 router.post("/", verifyToken, async (req, res) => {
   try {
     const { coin, amount, price_usd, type } = req.body;

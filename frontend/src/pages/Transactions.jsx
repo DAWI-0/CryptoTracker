@@ -9,8 +9,8 @@ export default function Transactions() {
 
   useEffect(() => {
     Promise.all([
-      api.get("/transactions"),   // achats
-      api.get("/offers")          // ventes
+      api.get("/transactions"),  
+      api.get("/offers")          
     ])
       .then(([txRes, sellRes]) => {
         const buys = txRes.data.map(t => ({ ...t, type: "buy", date: t.createdAt }));
@@ -35,7 +35,6 @@ export default function Transactions() {
 
         <h1 className="text-3xl font-extrabold text-center text-[#E6D8B5]">{t('transactions.title')}</h1>
 
-        {/* Tableau sombre + bordures beige */}
         <div className="bg-[#1E293B] rounded-2xl p-6 border border-[#E6D8B5]/30 overflow-x-auto">
           <table className="min-w-full text-sm">
             <thead>

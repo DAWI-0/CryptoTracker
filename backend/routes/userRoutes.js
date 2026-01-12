@@ -3,11 +3,8 @@ const router = express.Router();
 const User = require("../models/User");
 const { verifyToken, isAdmin } = require("../middleware/auth");
 const bcrypt = require("bcrypt");
-const upload = require("../middleware/upload"); // ← upload d’image
+const upload = require("../middleware/upload");
 
-/* ================== USER ================== */
-
-// GET /api/user/me → profil connecté
 router.get("/me", verifyToken, async (req, res) => {
   try {
     const user = await User.findByPk(req.user.id);
@@ -19,7 +16,6 @@ router.get("/me", verifyToken, async (req, res) => {
   }
 });
 
-// PUT /api/user/me → mettre à jour son profil
 router.put("/me", verifyToken, async (req, res) => {
   try {
     const { username, email, password, favoriteCoin, facebook, twitter, linkedin, instagram, profile } = req.body;
@@ -34,7 +30,6 @@ router.put("/me", verifyToken, async (req, res) => {
   }
 });
 
-// DELETE /api/user/me → supprimer son compte
 router.delete("/me", verifyToken, async (req, res) => {
   try {
     await User.destroy({ where: { id: req.user.id } });
@@ -45,9 +40,6 @@ router.delete("/me", verifyToken, async (req, res) => {
   }
 });
 
-/* ================== AVATAR ================== */
-
-// POST /api/user/avatar → uploader une image de profil
 router.post("/avatar", verifyToken, upload.single("avatar"), async (req, res) => {
   try {
     if (!req.file) return res.status(400).json({ error: "Aucun fichier reçu" });
@@ -65,9 +57,6 @@ router.post("/avatar", verifyToken, upload.single("avatar"), async (req, res) =>
   }
 });
 
-/* ================== ADMIN ================== */
-
-// GET /api/user → liste tous les users (admin)
 router.get("/", verifyToken, isAdmin, async (req, res) => {
   try {
     const users = await User.findAll({ attributes: { exclude: ["password"] } });
@@ -78,7 +67,6 @@ router.get("/", verifyToken, isAdmin, async (req, res) => {
   }
 });
 
-// PUT /api/user/:id → modifier un user (admin)
 router.put("/:id", verifyToken, isAdmin, async (req, res) => {
   try {
     const { username, email, role, favoriteCoin, socialMedia, profile } = req.body;
@@ -94,7 +82,6 @@ router.put("/:id", verifyToken, isAdmin, async (req, res) => {
   }
 });
 
-// DELETE /api/user/:id → supprimer un user (admin)
 router.delete("/:id", verifyToken, isAdmin, async (req, res) => {
   try {
     const deleted = await User.destroy({ where: { id: req.params.id } });

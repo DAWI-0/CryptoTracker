@@ -3,17 +3,13 @@ const { Sequelize, DataTypes } = require("sequelize");
 const sequelize = new Sequelize({
   dialect: "sqlite",
   storage: "./database.sqlite",
-  logging: false // optionnel
+  logging: false 
 });
 
-// Test de connexion
 sequelize.authenticate()
   .then(() => console.log("✅ Connecté à SQLite"))
   .catch(err => console.error("❌ Erreur de connexion :", err));
 
-// ========================================
-// ✅ DÉFINITION DES MODÈLES
-// ========================================
 
 const User = sequelize.define("User", {
   username: { type: DataTypes.STRING, allowNull: false },
@@ -47,19 +43,11 @@ const Offer = sequelize.define("Offer", {
   status: { type: DataTypes.ENUM("open", "closed"), defaultValue: "open" }
 }, { timestamps: true });
 
-// ========================================
-// ✅ ASSOCIATIONS
-// ========================================
-
 User.hasMany(Transaction, { foreignKey: "userId" });
 Transaction.belongsTo(User, { foreignKey: "userId" });
 
 User.hasMany(Offer, { foreignKey: "sellerId" });
 Offer.belongsTo(User, { foreignKey: "sellerId", as: "User" });
-
-// ========================================
-// ✅ EXPORT
-// ========================================
 
 module.exports = {
   sequelize,

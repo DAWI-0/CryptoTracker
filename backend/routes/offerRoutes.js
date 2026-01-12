@@ -1,9 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const { Offer, User } = require("../models/index"); // ← CHANGEMENT ICI
+const { Offer, User } = require("../models/index");
 const { verifyToken } = require("../middleware/auth");
 
-// GET /api/offers → toutes les ventes ouvertes
 router.get("/", async (req, res) => {
   try {
     const offers = await Offer.findAll({
@@ -22,7 +21,6 @@ router.get("/", async (req, res) => {
   }
 });
 
-// POST /api/offers → créer une vente
 router.post("/", verifyToken, async (req, res) => {
   try {
     const { coin, amount, price_usd } = req.body;

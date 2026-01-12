@@ -72,7 +72,6 @@ export default function Profile() {
 
         <h1 className="text-4xl font-extrabold text-center text-[#E6D8B5]">{t('profile.title')}</h1>
 
-        {/* Carte 1 : photo + nom + date création */}
         <div className="bg-[#1E293B] rounded-2xl p-6 border border-[#E6D8B5]/30">
           <div className="flex flex-col md:flex-row items-center gap-6">
             <div className="relative">
@@ -98,7 +97,6 @@ export default function Profile() {
           </div>
         </div>
 
-        {/* Carte 2 : email + coin + social (si rempli) */}
         <div className="bg-[#1E293B] rounded-2xl p-6 border border-[#E6D8B5]/30">
           <h2 className="text-lg font-semibold mb-4 text-[#E6D8B5]">{t('profile.info_title')}</h2>
 
@@ -113,7 +111,6 @@ export default function Profile() {
             </div>
           </div>
 
-          {/* Social media uniquement s'ils existent */}
           {socialPlatforms.some(p => user[p.key]) && (
             <div className="mt-6">
               <h3 className="text-base font-medium mb-3 text-[#E6D8B5]">{t('profile.social_title')}</h3>
@@ -137,12 +134,9 @@ export default function Profile() {
           )}
         </div>
 
-        {/* Formulaire édition (un social par ligne) */}
         {edit && (
           <div className="bg-[#1E293B] rounded-2xl p-6 border border-[#E6D8B5]/30">
             <h2 className="text-xl font-bold mb-4 text-[#E6D8B5]">{t('profile.edit_title')}</h2>
-
-            {/* Ligne 1 : username + email */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
               <div>
                 <label className="block text-sm mb-1">{t('profile.username_label')}</label>
@@ -154,13 +148,11 @@ export default function Profile() {
               </div>
             </div>
 
-            {/* Ligne 2 : coin favori */}
             <div className="mb-4">
               <label className="block text-sm mb-1">{t('profile.favorite_coin_label')}</label>
               <input className="w-full px-3 py-2 rounded-lg bg-[#0F172A] border border-[#E6D8B5]/30 text-[#FFFFFF] focus:outline-none focus:ring-2 focus:ring-[#E6D8B5]" value={user.favoriteCoin} onChange={e => setUser({ ...user, favoriteCoin: e.target.value })} />
             </div>
 
-            {/* Lignes 3-6 : un social par ligne */}
             <div className="space-y-3">
               {socialPlatforms.map(({ key, icon: Icon, base }) => (
                 <div key={key} className="flex items-center gap-3">
@@ -184,7 +176,6 @@ export default function Profile() {
               ))}
             </div>
 
-            {/* Bouton sauvegarde */}
             <div className="mt-6 text-center">
               <button onClick={updateProfile} className="px-6 py-3 rounded-lg bg-[#E6D8B5] text-[#0F172A] font-semibold hover:bg-white transition">
                 {t('profile.save_button')}

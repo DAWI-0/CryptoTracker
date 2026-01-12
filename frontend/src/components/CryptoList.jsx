@@ -9,9 +9,9 @@ export default function CryptoList() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    api.get("/crypto")  // <-- route backend correcte
+    api.get("/crypto")  
       .then(res => {
-        setCoins(res.data); // FreeCryptoAPI renvoie un tableau simple
+        setCoins(res.data); 
         setLoading(false);
       })
       .catch(() => setLoading(false));

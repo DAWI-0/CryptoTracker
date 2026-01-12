@@ -2,7 +2,6 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 
-// Import direct des fichiers JSON
 import translationEN from "./locales/en.json";
 import translationFR from "./locales/fr.json";
 import translationAR from "./locales/ar.json";
@@ -20,21 +19,21 @@ const resources = {
 };
 
 i18n
-    .use(LanguageDetector) // Détecte la langue du navigateur
+    .use(LanguageDetector) 
     .use(initReactI18next)
     .init({
         resources,
-        lng: localStorage.getItem("i18nextLng") || "fr", // Langue par défaut
+        lng: localStorage.getItem("i18nextLng") || "fr", 
         fallbackLng: "fr",
-        supportedLngs: ["en", "fr", "ar"], // Langues supportées
+        supportedLngs: ["en", "fr", "ar"], 
 
         detection: {
             order: ['localStorage', 'navigator'],
-            caches: ['localStorage'] // Mémoriser le choix
+            caches: ['localStorage'] 
         },
 
         interpolation: {
-            escapeValue: false // React protège déjà contre les failles XSS
+            escapeValue: false 
         }
     });
 

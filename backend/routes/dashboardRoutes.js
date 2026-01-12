@@ -2,19 +2,16 @@ const express = require("express");
 const router = express.Router();
 const { User, Transaction, Offer } = require("../models/index");
 const { verifyToken, isAdmin } = require("../middleware/auth");
-const { Op } = require("sequelize"); // Import Op for date filtering
+const { Op } = require("sequelize");
 
-/* ----------  STATS & CHARTS DATA  ---------- */
 router.get("/", verifyToken, isAdmin, async (req, res) => {
   try {
-    // 1. Basic Counters
     const [userCount, txCount, offerCount] = await Promise.all([
       User.count(),
       Transaction.count(),
       Offer.count()
     ]);
 
-    // 2. Recent Data for Tables
     const recentTx = await Transaction.findAll({
       order: [["createdAt", "DESC"]],
       limit: 5,
@@ -27,8 +24,6 @@ router.get("/", verifyToken, isAdmin, async (req, res) => {
       raw: true
     });
 
-    // 3. Chart Data (Last 7 Days Activity)
-    // We simulate a grouping here. Ideally, use Sequelize.fn('count') with group by date.
     const sevenDaysAgo = new Date();
     sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
 
@@ -37,7 +32,6 @@ router.get("/", verifyToken, isAdmin, async (req, res) => {
       attributes: ['createdAt']
     });
 
-    // Process data for the Frontend Chart
     const chartMap = {};
     for (let i = 0; i < 7; i++) {
       const d = new Date();
@@ -60,7 +54,7 @@ router.get("/", verifyToken, isAdmin, async (req, res) => {
       stats: { userCount, txCount, offerCount },
       recentTx,
       recentOffers,
-      chartData // Sent to frontend
+      chartData
     });
 
   } catch (error) {

@@ -44,7 +44,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
 
-          {/* Login / Register */}
           <Route
             path="/login"
             element={user ? <Navigate to="/" /> : <Login setUser={setUser} />}
@@ -54,13 +53,11 @@ function App() {
             element={user ? <Navigate to="/" /> : <Register setUser={setUser} />}
           />
 
-          {/* Profile */}
           <Route
             path="/profile"
             element={user ? <Profile user={user} setUser={setUser} /> : <Navigate to="/login" />}
           />
 
-          {/* Admin pages */}
           <Route
             path="/dashboard"
             element={user?.role === "admin" ? <Dashboard /> : <Navigate to="/" />}

@@ -41,12 +41,8 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-[#0F172A] text-white font-sans selection:bg-[#E6D8B5] selection:text-[#0F172A] mt-10">
 
-      {/* --- Top Bar --- */}
-
-
       <main className="max-w-7xl mx-auto p-8 space-y-8">
 
-        {/* --- KPI Cards --- */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <StatCard
             title={t('dashboard.stats.users')}
@@ -68,10 +64,7 @@ export default function Dashboard() {
           />
         </div>
 
-        {/* --- Main Chart Section --- */}
         <div className="gap-8">
-
-          {/* Chart */}
           <div className="lg:col-span-2 bg-[#1E293B] border border-[#E6D8B5]/20 rounded-2xl p-6 shadow-xl">
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-lg font-semibold text-[#E6D8B5] flex items-center gap-2">
@@ -101,10 +94,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* --- Recent Data Tables --- */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-
-          {/* Recent Transactions Table */}
           <div className="bg-[#1E293B] border border-[#E6D8B5]/20 rounded-2xl overflow-hidden">
             <div className="p-6 border-b border-[#E6D8B5]/10 flex justify-between items-center">
               <h3 className="font-semibold text-[#E6D8B5]">{t('dashboard.recent_tx.title')}</h3>
@@ -131,7 +121,6 @@ export default function Dashboard() {
             </div>
           </div>
 
-          {/* Recent Offers Table */}
           <div className="bg-[#1E293B] border border-[#E6D8B5]/20 rounded-2xl overflow-hidden">
             <div className="p-6 border-b border-[#E6D8B5]/10 flex justify-between items-center">
               <h3 className="font-semibold text-[#E6D8B5]">{t('dashboard.recent_offers.title')}</h3>
@@ -160,7 +149,6 @@ export default function Dashboard() {
   );
 }
 
-// --- Sub Components ---
 
 function StatCard({ title, value, icon, trend }) {
     const { t } = useTranslation();

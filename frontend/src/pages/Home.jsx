@@ -38,11 +38,9 @@ export default function Home() {
 
   return (
     <div className="min-h-screen w-full bg-[#0F172A] text-[#FFFFFF]">
-      {/* Décalage pour navbar fixed */}
       <div className="pt-16" />
 
       <div className="max-w-7xl mx-auto px-6 pb-12">
-        {/* Titre */}
         <div className="text-center mb-10">
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-3">
             Crypto<span className="text-[#E6D8B5]">{t('home.title_suffix')}</span>
@@ -52,7 +50,6 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Grille des cryptos */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {coins.map((c, idx) => (
             <div
@@ -86,7 +83,6 @@ export default function Home() {
                 ${Number(c.price_usd).toFixed(2)}
               </p>
 
-              {/* Trait décoratif */}
               <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#E6D8B5] scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 rounded-b-2xl" />
             </div>
           ))}

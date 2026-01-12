@@ -1,6 +1,4 @@
 const jwt = require("jsonwebtoken");
-
-// Vérifier token
 const verifyToken = (req, res, next) => {
   console.log("🔐 verifyToken appelé");
   const token = req.cookies?.token;
@@ -22,7 +20,6 @@ const verifyToken = (req, res, next) => {
   }
 };
 
-// Vérifier admin
 const isAdmin = (req, res, next) => {
   if (req.user.role !== "admin") return res.status(403).json({ message: "Admin access required" });
   next();

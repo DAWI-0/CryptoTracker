@@ -1,10 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const { User } = require("../models/index"); // ← CHANGEMENT ICI
+const { User } = require("../models/index");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-// Register
 router.post("/register", async (req, res) => {
   console.log("📩 body reçu :", req.body);
   const { username, email, password } = req.body;
@@ -19,7 +18,6 @@ router.post("/register", async (req, res) => {
   }
 });
 
-// Login
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -50,7 +48,6 @@ router.post("/login", async (req, res) => {
   }
 });
 
-// Logout
 router.post("/logout", (req, res) => {
   res.clearCookie("token", { path: "/" });
   res.json({ message: "Logged out" });
