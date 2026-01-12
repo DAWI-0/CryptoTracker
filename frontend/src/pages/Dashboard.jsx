@@ -26,8 +26,10 @@ export default function Dashboard() {
         setData(res.data);
         setLoading(false);
       })
-      .catch(() => {
-        alert(t('dashboard.loading_error'));
+      .catch((err) => {
+        console.error("Dashboard load error:", err);
+        const msg = err.response?.data?.message || err.response?.data?.error || t('dashboard.loading_error');
+        alert(`Erreur: ${msg}`);
         setLoading(false);
       });
   };
@@ -35,6 +37,12 @@ export default function Dashboard() {
   if (loading) return (
     <div className="min-h-screen bg-[#0F172A] flex items-center justify-center">
       <div className="w-16 h-16 border-4 border-[#E6D8B5] border-t-transparent rounded-full animate-spin"></div>
+    </div>
+  );
+
+  if (!data) return (
+    <div className="min-h-screen bg-[#0F172A] flex items-center justify-center text-white">
+      <p>{t('dashboard.loading_error')}</p>
     </div>
   );
 
@@ -151,7 +159,7 @@ export default function Dashboard() {
 
 
 function StatCard({ title, value, icon, trend }) {
-    const { t } = useTranslation();
+  const { t } = useTranslation();
   return (
     <div className="bg-[#1E293B] rounded-2xl p-6 border border-[#E6D8B5]/20 shadow-lg hover:border-[#E6D8B5]/50 transition-all">
       <div className="flex justify-between items-start">

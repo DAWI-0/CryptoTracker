@@ -5,13 +5,13 @@ const verifyToken = (req, res, next) => {
   console.log("🍪 token reçu :", token);
 
   if (!token) {
-    console.log("❌ pas de token");
+    console.log("pas de token");
     return res.status(401).json({ message: "Not authorized" });
   }
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    console.log("✅ token valide, user :", decoded);
+    console.log("token valide, user :", decoded);
     req.user = decoded;
     next();
   } catch (err) {
@@ -20,9 +20,26 @@ const verifyToken = (req, res, next) => {
   }
 };
 
-const isAdmin = (req, res, next) => {
-  if (req.user.role !== "admin") return res.status(403).json({ message: "Admin access required" });
-  next();
+const { User } = require("../models/index");
+
+const isAdmin = async (req, res, next) => {
+  try {
+    const user = await User.findByPk(req.user.id);
+    if (!user) return res.status(401).json({ message: "User not found" });
+
+    // Update req.user with fresh data
+    req.user = user.toJSON();
+
+    if (user.role !== "admin") {
+      console.log(` Access denied. User ${user.id} is ${user.role}, required: admin`);
+      return res.status(403).json({ message: "Admin access required" });
+    }
+
+    next();
+  } catch (err) {
+    console.error("Error in isAdmin middleware:", err);
+    res.status(500).json({ error: "Server error checking rights" });
+  }
 };
 
 module.exports = { verifyToken, isAdmin };

@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "username": "bkjjzdv",
+    "email": "msdnzjkcz@gmail.com",
+    "role": "user"
+  },
+  {
+    "id": 2,
+    "username": "yassine naghi",
+    "email": "mohamedyassinenaghi@gmail.com",
+    "role": "user"
+  },
+  {
+    "id": 3,
+    "username": "yassine naghi",
+    "email": "yassinenaghi2004@gmail.com",
+    "role": "admin"
+  },
+  {
+    "id": 4,
+    "username": "Admin",
+    "email": "yassinenaghi204@gmail.com",
+    "role": "user"
+  },
+  {
+    "id": 5,
+    "username": "nnn",
+    "email": "n@n.com",
+    "role": "admin"
+  },
+  {
+    "id": 6,
+    "username": "dawi",
+    "email": "dawi@gmail.com",
+    "role": "admin"
+  }
+]

@@ -5,15 +5,15 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 router.post("/register", async (req, res) => {
-  console.log("📩 body reçu :", req.body);
+  console.log("body reçu :", req.body);
   const { username, email, password } = req.body;
   try {
     const hashed = await bcrypt.hash(password, 10);
     const user = await User.create({ username, email, password: hashed });
-    console.log("✅ user créé :", user.id);
+    console.log("user créé :", user.id);
     res.json({ message: "User registered", user });
-  } catch (err) {
-    console.error("❌ erreur register :", err);
+  } catch (err) { 
+    console.error("erreur register :", err);
     res.status(400).json({ message: err.message });
   }
 });
@@ -43,7 +43,7 @@ router.post("/login", async (req, res) => {
     const { password: _, ...userSafe } = user.toJSON();
     res.json({ message: "Logged in", user: userSafe });
   } catch (err) {
-    console.error("❌ erreur login :", err);
+    console.error("erreur login :", err);
     res.status(500).json({ message: err.message });
   }
 });
